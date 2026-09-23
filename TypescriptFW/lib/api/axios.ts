@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios = require("axios");
+
 let url = "https://jsonplaceholder.typicode.com/users/"
 let config = {
   headers: {
