@@ -1,13 +1,15 @@
 
 // Example for Inheritance
 class Person {
-    name: string;
-constructor(name: string) {
-this.name = name;
-}
-async totalMarks(s1: number, s2: number, s3: number): Promise<number> {
-return s1 + s2 + s3;
-}
+    name!: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    async totalMarks(s1: number, s2: number, s3: number): Promise<number> {
+        return s1 + s2 + s3;
+    }
 }
 //==================================================================================================================
 // Extends
