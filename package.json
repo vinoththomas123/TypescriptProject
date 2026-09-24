@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "axios": "ts-node TypescriptFW/lib/api/axios.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "npx ts-node tests/tests.ts",
+    "test": "mocha -r ts-node/register --timeout 30000 --reporter mochawesome --reporter-options \"reportDir=reports/test,html=true,json=true,overwrite=false\"",
+    "test:all": "mocha -r ts-node/register --timeout 30000 --reporter mochawesome --reporter-options \"reportDir=reports/allTests,html=true,json=true,overwrite=false\" \"tests/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,6 @@
     "rimraf": "^6.0.1",
     "ts-mocha": "^11.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"    
+    "typescript": "^5.9.2"
   }
 }
