@@ -6,16 +6,6 @@ pipeline {
     }
 
     stages {
-        stage("Checkout") {
-            steps {
-                git(
-                    branch: "vt-typescript",
-                    credentialsId: "github-credentials",
-                    url: "https://github.com/vinoththomas123/TypescriptProject.git"
-                )
-            }
-        }
-
         stage("Install dependencies") {
             steps {
                 bat "node --version"
