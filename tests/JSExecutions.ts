@@ -49,7 +49,9 @@ describe("JS Executions", function(){
     });
 
     after("After Block", async function(){
-        // await driver.quit();
+        if (driver) {
+            await driver.quit();
+        }
     });
 
     async function jsExecute(webElement: WebElement, jsCmd: string){

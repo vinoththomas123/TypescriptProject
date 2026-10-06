@@ -31,15 +31,20 @@ describe("Launch Browser", function () {
 
 
     it("Step 2", async function () {
-        let driver: WebDriver = await new Builder().forBrowser("chrome").build();
-        await driver.get("https://www.google.com");
+        const stepDriver: WebDriver = await new Builder().forBrowser("chrome").build();
 
-        let title = await driver.getTitle();
-        let srchElement = await driver.findElement(By.name("q"));
-        await srchElement.clear();
-        await srchElement.sendKeys("My Test");
+        try {
+            await stepDriver.get("https://www.google.com");
 
-        let val = await srchElement.getAttribute("value");
+            let title = await stepDriver.getTitle();
+            let srchElement = await stepDriver.findElement(By.name("q"));
+            await srchElement.clear();
+            await srchElement.sendKeys("My Test");
+
+            let val = await srchElement.getAttribute("value");
+        } finally {
+            await stepDriver.quit();
+        }
     });
 
     async function waitForElement(element: By, waitTime: number) {
