@@ -1,6 +1,6 @@
 import { describe, before, after, it } from "mocha";
 import { DriverFactory } from "../lib/core/driverFactory";
-import { WebDriver } from "selenium-webdriver";
+import { Builder, WebDriver, By, WebElement, until } from "selenium-webdriver";
 import testData from "../lib/config/TestData.json";
 import { Logger } from "../lib/core/logger";
 
@@ -29,4 +29,22 @@ describe("Launch Browser", function () {
         await DriverFactory.tearDown()
     });
 
+
+    it("Step 2", async function () {
+        let driver: WebDriver = await new Builder().forBrowser("chrome").build();
+        await driver.get("https://www.google.com");
+
+        let title = await driver.getTitle();
+        let srchElement = await driver.findElement(By.name("q"));
+        await srchElement.clear();
+        await srchElement.sendKeys("My Test");
+
+        let val = await srchElement.getAttribute("value");
+    });
+
+    async function waitForElement(element: By, waitTime: number) {
+        await driver.wait(until.elementLocated(element), waitTime)
+    }
 });
+
+
