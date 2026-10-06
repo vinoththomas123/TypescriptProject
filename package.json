@@ -37,9 +37,8 @@
     "mocha": "^12.0.3",
     "mochawesome": "^8.1.1",
     "mochawesome-report-generator": "^6.3.2",
-    "rimraf": "^6.0.1",
-    "ts-mocha": "^11.1.0",
+    "rimraf": "^6.1.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
