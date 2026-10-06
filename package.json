@@ -7,7 +7,10 @@
     "axios": "ts-node TypescriptFW/lib/api/axios.ts",
     "run": "npx ts-node tests/tests.ts",
     "test": "mocha -r ts-node/register --timeout 30000 --reporter mochawesome --reporter-options \"reportDir=reports/test,html=true,json=true,overwrite=false\"",
-    "test:all": "mocha -r ts-node/register --timeout 30000 --reporter mochawesome --reporter-options \"reportDir=reports/allTests,html=true,json=true,overwrite=false\" \"tests/**/*.ts\""
+    "test:all": "mocha -r ts-node/register --timeout 30000 --reporter mochawesome --reporter-options \"reportDir=reports/allTests,html=true,json=true,overwrite=false\" \"tests/**/*.ts\"",
+    "VT": "mocha -r ts-node/register --timeout 10000000 --reporter mochawesome --reporter-options \"reportDir=reports/mochawesome-reports,reportFilename=VTReport,enableCode=false,html=true,json=true,overwrite=false\"",
+    "clean": "rimraf reports",
+    "test:ci": "npm run clean && mocha --require ts-node/register --extensions ts \"tests/**/*.ts\" --reporter mochawesome --reporter-options \"reportDir=reports,reportFilename=mochawesome,html=true,json=true,overwrite=true\""
   },
   "repository": {
     "type": "git",
