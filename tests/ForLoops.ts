@@ -5,7 +5,15 @@ let json = {
 
 }
 
+for (let item in json) {
+    console.log(json[item]);
+}
+
 let arrayStr = ["a", "b", "c", "d"];
+
+for (let item of arrayStr){
+    console.log("Array Strings: " + item);
+}
 
 interface interFace {
     EmpName: string,
@@ -24,9 +32,7 @@ for (let i = 0; i < arrayStr.length; i++) {
     console.log(arrayStr[i]);
 }
 
-for (let item in json) {
-    console.log(json[item]);
-}
+
 
 for (let x in inter) {
     console.log(inter[x]);
@@ -57,8 +63,6 @@ enum Enum {
 for (let i in Enum) {
     console.log(Enum[i]);
 }
-
-
 
 let response = {
     "data": [
